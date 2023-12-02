@@ -1,5 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { UserButton, auth } from '@clerk/nextjs';
+import Link from 'next/link';
+import { LogIn } from 'lucide-react';
 
 export default async function Home() {
   const { userId } = await auth();
@@ -16,10 +18,22 @@ export default async function Home() {
           <div className="flex mt-2">
             {isAuth && <Button>Go to Chats</Button>}
           </div>
-          <p className="max-w-xl mt-2 text-lg text-slate-600">
+          <p className="max-w-xl mt-1 text-lg text-slate-600">
             Join millions of students, researchers and professionals to
             instantly answer questions and understand research with AI
           </p>
+          <div className="w-full mt-4">
+            {isAuth ? (
+              <h1> fileupload </h1>
+            ) : (
+              <Link href="/sign-in">
+                <Button>
+                  Login to get started
+                  <LogIn className="w-4 h-4 ml-2 " />
+                </Button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>
