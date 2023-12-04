@@ -5,6 +5,7 @@ import {
   timestamp,
   varchar,
   integer,
+  pgEnum,
 } from 'drizzle-orm/pg-core';
 
 export const userSystemEnum = pgEnum('user_system_enum', ['system,user,']);
